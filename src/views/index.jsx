@@ -3,7 +3,7 @@ var PropTypes = require('prop-types');
 var Layout = require('./layout');
 
 // Contrived example to show how one might use Flow type annotations
-function countTo(n: number): string {
+function countTo(n) {
   var a = [];
   for (var i = 0; i < n; i++) {
     a.push(i + 1);
