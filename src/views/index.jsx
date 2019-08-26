@@ -1,33 +1,34 @@
-var React = require('react');
-var PropTypes = require('prop-types');
-var Layout = require('./layout');
-
-// Contrived example to show how one might use Flow type annotations
-function countTo(n) {
-  var a = [];
-  for (var i = 0; i < n; i++) {
-    a.push(i + 1);
-  }
-  return a.join(', ');
-}
-
+import React, {component} from 'react';
+import NavBar from './NavBar';
+import Bootstrap from './Bootstrap';
+//import './App.css';
 class Index extends React.Component {
+  constructor(){
+    super()
+    
+    this.state = {
+      user: null ,
+    }
+  }
+
+  isSignedIn(){
+    if(!this.props.currentUser){
+      return (<a href="users/sign_in">Sign In to View Your Lists</a>)
+    } else {
+      console.log(this.props)
+    }
+  }
   render() {
+    
     return (
-      <Layout title={this.props.title}>
-        <h1>{this.props.title}</h1>
-        <p>Welcome to {this.props.title}</p>
-        <p>
-          I can count to 10:
-          {countTo(10)}
-        </p>
-      </Layout>
+      <div style={{padding: '2% 0% 0% 2%'}}>
+        <Bootstrap/>
+        <NavBar currentUser={this.state.currentUser}/>
+        <h1>Shopping List App</h1>
+        {this.isSignedIn()}
+      </div>
     );
   }
 }
-
-Index.propTypes = {
-  title: PropTypes.string,
-};
 
 module.exports = Index;
