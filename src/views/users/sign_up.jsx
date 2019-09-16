@@ -4,7 +4,7 @@ import NavBar from '../NavBar';
 class Sign_Up extends Component {
   render() {
     return (
-    <div>
+    <div className="app">
         <Bootstrap />
         <NavBar />
         <h1>Sign up</h1>

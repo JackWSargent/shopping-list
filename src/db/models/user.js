@@ -4,7 +4,6 @@ module.exports = (sequelize, DataTypes) => {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      
     },
     password: {
       type: DataTypes.STRING,
@@ -12,14 +11,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   User.associate = function(models) {
-    User.hasMany(models.List, {
-      foreignKey: "userId",
-      as: "lists"
-    })
-    User.hasMany(models.Item, {
-      foreignKey: "userId",
-      as: "items"
-    })
   };
   return User;
 };

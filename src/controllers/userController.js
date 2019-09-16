@@ -33,7 +33,7 @@ module.exports = {
             console.log("not signed in");
             res.redirect("/users/sign_in");
           } else {
-            console.log("signed in");
+            //console.log("signed in");
             req.flash("notice", "You've successfully signed in!");
             res.redirect("/");
           }

@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../controllers/userController");
+const itemController = require("../controllers/itemController");
 
-//router.get("/", userController.index);
+router.post("/lists/:listId/create", itemController.create)
+router.post("/lists/:listId/:id/destroy", itemController.destroy)
 
 module.exports = router;

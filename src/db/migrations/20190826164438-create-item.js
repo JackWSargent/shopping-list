@@ -23,6 +23,26 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE", 
+        allowNull: false,    
+        references: {        
+          model: "Users",   
+          key: "id",         
+          as: "userId"      
+        },
+      },
+      listId: {
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE", 
+        allowNull: false,    
+        references: {        
+          model: "Lists",   
+          key: "id",         
+          as: "listId"      
+        },
       }
     });
   },

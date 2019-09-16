@@ -4,13 +4,13 @@ import NavBar from '../NavBar';
 class Sign_In extends Component {
   render() {
     return (
-    <div>
+    <div className="app">
         <Bootstrap />
         <NavBar />
         <h1>Sign In</h1>
         <a href="/users/sign_up/">Create an Account</a>
         <br/>
-        <form action="/users/sign_in" method="post">
+        <form action="/users/sign_in" method="POST">
             <div className="form-group">
                 <label>Email</label>
                 <input type="email" className="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email"></input>            </div>
