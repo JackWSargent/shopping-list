@@ -40,7 +40,7 @@ module.exports = {
           if(err || list == null){
             res.redirect(404, "/");
           } else {
-            console.log("found list");
+            //console.log("found list");
             res.render("listItems", {list});
           }
         });

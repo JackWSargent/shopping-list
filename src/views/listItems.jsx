@@ -39,6 +39,7 @@ class ListItems extends Component {
                         <button type="submit" className="btn btn-danger">Delete</button>
                     </form>
                     <form action={`/lists/${this.props.list.id}/${item.id}/update`} method="post">
+                        <textarea className="form-control" name="name" defaultValue={item.name} placeholder="Name of Item"></textarea>
                         <select className="form-control" name="purchased">
                             <option value="false">Not Purchased</option>
                             <option value="true">Purchased</option>
