@@ -46,5 +46,15 @@ module.exports = {
               res.redirect(303, `/lists/${req.params.listId}`)
             }
           });
+      },
+      updatePurchased(req,res,next){
+          console.log("update hit")
+          itemQueries.updateItem(req, req.body, (err, item)  => {
+              if(err || item == null){
+                  res.redirect(404, `/lists/${req.params.listId}`)
+              } else {
+                  res.redirect(`/lists/${req.params.listId}`)
+              }
+          })
       }
 }

@@ -57,4 +57,27 @@ module.exports = {
           callback(err);
         })
       },
+      updateItem(req, updatedItem, callback){
+        return Item.findByPk(req.params.id)
+        .then((item) => {
+          if(!item){
+            return callback("Item not found");
+          }
+          const authorized = new Authorizer(req.user, item).update();        
+          if(authorized) {
+            item.update(updatedItem, {
+              fields: Object.keys(updatedItem)
+            })
+            .then(() => {
+              callback(null, item);
+            })
+            .catch((err) => {
+              callback(err);
+            });
+          } else {
+            req.flash("notice", "You are not authorized to do that.");
+            callback("Forbidden");
+          }
+        });
+      }
     }
