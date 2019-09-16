@@ -41,7 +41,7 @@ module.exports = {
             res.redirect(404, "/");
           } else {
             console.log("found list");
-            res.render("ListItems", {list});
+            res.render("listItems", {list});
           }
         });
       }
